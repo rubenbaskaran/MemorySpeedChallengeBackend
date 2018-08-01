@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/rubenbaskaran/MemorySpeedChallengeBackend/issues"
   },
-  "homepage": "https://github.com/rubenbaskaran/MemorySpeedChallengeBackend#readme"
+  "homepage": "https://github.com/rubenbaskaran/MemorySpeedChallengeBackend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
 }
