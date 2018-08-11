@@ -2,8 +2,11 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var { Highscore } = require("./Highscore");
+const port = process.env.PORT || 3000;
+var config = require("./config.json");
+const dbUrlReference = process.env.PORT ? "mongodb://" + config.mlab.username + ":" + config.mlab.password + "@ds219532.mlab.com:19532/memoryspeedchallengedb" : "mongodb://localhost:27017/MemorySpeedChallengeDb"
 
-mongoose.connect("mongodb://localhost:27017/MemorySpeedChallengeDb", { useNewUrlParser: true }).then(() =>
+mongoose.connect(dbUrlReference, { useNewUrlParser: true }).then(() =>
 {
     console.log("Connected to MemorySpeedChallengeDb");
 }, (error) =>
@@ -14,9 +17,9 @@ mongoose.connect("mongodb://localhost:27017/MemorySpeedChallengeDb", { useNewUrl
 var app = express();
 app.use(bodyParser.json());
 
-app.listen(3000, () =>
+app.listen(port, () =>
 {
-    console.log("Started on port 3000");
+    console.log("Started on port " + port);
 });
 
 app.get("/highscores", function (req, res)
