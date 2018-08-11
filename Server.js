@@ -51,11 +51,11 @@ app.post("/highscore", function (req, res)
     newHighscore.save().then((doc) =>
     {
         console.log("Saved new highscore. Document: ", doc);
-        res.status(200).send();
+        res.status(200).send("Saved new highscore. Document: " + doc);
     }, (e) =>
         {
             console.log("Unable to save new highscore. Error: ", e);
-            res.status(400).send();
+            res.status(400).send("Unable to save new highscore. Error: " + e);
         });
 });
 
