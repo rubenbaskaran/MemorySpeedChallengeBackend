@@ -54,6 +54,11 @@ app.post("/highscore", function (req, res)
         });
 });
 
+app.get("/", function (req, res)
+{
+    res.status(200).send("Welcome to MemorySpeedChallenge");
+});
+
 app.get("*", function (req, res)
 {
     res.status(404).send("This is the default GET route");
